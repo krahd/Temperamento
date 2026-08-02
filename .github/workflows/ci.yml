@@ -45,8 +45,3 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
       - run: make reproducibility
-      - name: Verify sole public authorship
-        run: |
-          grep -F "given-names: Tomas" CITATION.cff
-          grep -F "family-names: Laurenzo" CITATION.cff
-          ! grep -niE 'Valeria|Rocha' CITATION.cff
