@@ -26,4 +26,4 @@ __all__ = [
     "to_tos_plus",
     "write_musicxml",
 ]
-__version__ = "0.5.0a1"
+__version__ = "0.5.0"
