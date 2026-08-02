@@ -24,4 +24,4 @@
 - [Reproducibility](REPRODUCIBILITY.md)
 - [Release process](RELEASE.md)
 
-The `v0.5.0-alpha.1` release adds ignored noncomputational Base material, `SWAP`, and a constructive universality result.
+The `v0.5.0` release adds ignored noncomputational Base material, `SWAP`, and a constructive universality result.
