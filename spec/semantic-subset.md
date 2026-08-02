@@ -1,4 +1,4 @@
-# Temperamento v0.5.0-alpha.1 reference semantics
+# Temperamento v0.5.0 reference semantics
 
 ## Source model
 
@@ -6,7 +6,7 @@ The reference implementation accepts uncompressed MusicXML and zip-based `.mxl` 
 
 For compressed MusicXML, `META-INF/container.xml` must identify at least one rootfile. Following MusicXML 4.0, the first rootfile is treated as the score entry point and later rootfiles may describe alternate renditions such as PDF or audio. The first rootfile must have no media type or a MusicXML media type. Duplicate, missing, directory, absolute, parent-traversing, or otherwise unsafe score entries are rejected.
 
-The parser accepts a standard external `score-partwise` MusicXML DOCTYPE, including the declaration emitted by MuseScore Studio, but rejects entity declarations and does not resolve external DTD content. It also rejects tied notes, malformed or non-positive timing values, oversized XML or archive inputs, excessive archive entries, excessive measure or note-event counts, unsupported part structures, changing staff counts, and ambiguous chord-member sequences. These are representation or source-structure errors, not judgements about harmonic validity.
+The parser accepts the standard external `score-partwise` MusicXML 4.0 DOCTYPE, including the declaration emitted by MuseScore Studio, but rejects entity declarations and other DTDs and does not resolve external DTD content. It also rejects tied notes, malformed or non-positive timing values, oversized XML or archive inputs, excessive archive entries, excessive measure or note-event counts, unsupported part structures, changing staff counts, and ambiguous chord-member sequences. These are representation or source-structure errors, not judgements about harmonic validity.
 
 ## Base: computational triads and ignored musical material
 
