@@ -2,7 +2,7 @@
 
 ## Claim
 
-The idealised TOScript Core implemented in Temperamento `v0.5.0-alpha.1` is Turing-complete.
+The idealised TOScript Core implemented in Temperamento `v0.5.0` is Turing-complete.
 
 This is a claim about the deterministic computational sublanguage, not about all musical notation, all performances, or all possible harmonic interpretations. The proof is constructive: [`src/temperamento/universality.py`](../src/temperamento/universality.py) translates a deterministic two-counter machine into TOScript Core, and [`tests/test_universality.py`](../tests/test_universality.py) executes representative translations.
 
