@@ -1,0 +1,10 @@
+push 3
+1:
+dup
+output
+push 1
+sub
+dup
+jump-if 1
+pop
+end

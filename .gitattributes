@@ -1,0 +1,22 @@
+# Generated and external-tool media must never be treated as line-oriented text.
+*.pdf binary
+*.png binary
+*.gif binary
+*.wav binary
+*.mp3 binary
+*.flac binary
+*.mid binary
+*.midi binary
+*.mxl binary
+*.mscz binary
+
+# Native MuseScore XML and portable XML remain reviewable text.
+*.mscx text eol=lf
+*.musicxml text eol=lf
+*.xml text eol=lf
+*.tos text eol=lf
+*.tom text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

@@ -1,0 +1,34 @@
+name: Invalid or unexpectedly accepted score
+about: Report a score that compiles incorrectly or produces an unclear diagnostic
+title: "[score] "
+labels: [bug, musicxml]
+body:
+  - type: markdown
+    attributes:
+      value: Attach the smallest non-sensitive MusicXML/MXL/MSCX/MSCZ file that reproduces the issue.
+  - type: input
+    id: version
+    attributes:
+      label: Temperamento version
+      placeholder: "0.4.0a1"
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and complete output
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: score
+    attributes:
+      label: Score attachment or minimal MusicXML
+    validations:
+      required: true

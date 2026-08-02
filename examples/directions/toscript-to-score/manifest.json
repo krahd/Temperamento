@@ -1,0 +1,28 @@
+{
+  "title": "TOScript to Score",
+  "primary_source": "TOScript",
+  "primary_path": "toscript-to-score.musicxml",
+  "canonical_score_path": "toscript-to-score.musicxml",
+  "canonical_toscript_path": "toscript-to-score.tos",
+  "canonical_toscript_plus_path": "toscript-to-score-roundtrip.tom",
+  "semantic_path": [
+    "TOScript",
+    "TOScript Core",
+    "MusicXML",
+    "TOScript Core"
+  ],
+  "presentation_path": [
+    "MusicXML",
+    "MuseScore sheet",
+    "MuseScore audio"
+  ],
+  "verified": {
+    "source_to_core": true,
+    "core_to_musicxml": true,
+    "musicxml_to_core": true,
+    "canonical_round_trip_byte_identical": true
+  },
+  "external_only": [
+    "audio-to-score transcription"
+  ]
+}

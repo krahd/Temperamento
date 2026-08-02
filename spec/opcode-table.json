@@ -1,0 +1,482 @@
+[
+  {
+    "cell": "0MM",
+    "distance": 0,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "ADD",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "1MM",
+    "distance": 1,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "SUB",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "2MM",
+    "distance": 2,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "MUL",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "3MM",
+    "distance": 3,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "DIV",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "4MM",
+    "distance": 4,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "NOT",
+    "arity": 0,
+    "stack_inputs": 1,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "5MM",
+    "distance": 5,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "PUSH",
+    "arity": 1,
+    "stack_inputs": 0,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "6MM",
+    "distance": 6,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "POP",
+    "arity": 0,
+    "stack_inputs": 1,
+    "stack_outputs": 0
+  },
+  {
+    "cell": "7MM",
+    "distance": 7,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "DUP",
+    "arity": 0,
+    "stack_inputs": 1,
+    "stack_outputs": 2
+  },
+  {
+    "cell": "8MM",
+    "distance": 8,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "AND",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "9MM",
+    "distance": 9,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "OR",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "10MM",
+    "distance": 10,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "EQ",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 1
+  },
+  {
+    "cell": "11MM",
+    "distance": 11,
+    "initial_mode": "M",
+    "final_mode": "M",
+    "opcode": "LBL",
+    "arity": 1,
+    "stack_inputs": 0,
+    "stack_outputs": 0
+  },
+  {
+    "cell": "0Mm",
+    "distance": 0,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "1Mm",
+    "distance": 1,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "2Mm",
+    "distance": 2,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "3Mm",
+    "distance": 3,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "4Mm",
+    "distance": 4,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "5Mm",
+    "distance": 5,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "6Mm",
+    "distance": 6,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "7Mm",
+    "distance": 7,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "8Mm",
+    "distance": 8,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "9Mm",
+    "distance": 9,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "10Mm",
+    "distance": 10,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "11Mm",
+    "distance": 11,
+    "initial_mode": "M",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "0mM",
+    "distance": 0,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "1mM",
+    "distance": 1,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "2mM",
+    "distance": 2,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "3mM",
+    "distance": 3,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "4mM",
+    "distance": 4,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "5mM",
+    "distance": 5,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "6mM",
+    "distance": 6,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "7mM",
+    "distance": 7,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "8mM",
+    "distance": 8,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "9mM",
+    "distance": 9,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "10mM",
+    "distance": 10,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "11mM",
+    "distance": 11,
+    "initial_mode": "m",
+    "final_mode": "M",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "0mm",
+    "distance": 0,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "JMC",
+    "arity": 1,
+    "stack_inputs": 1,
+    "stack_outputs": 0
+  },
+  {
+    "cell": "1mm",
+    "distance": 1,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "JMP",
+    "arity": 1,
+    "stack_inputs": 0,
+    "stack_outputs": 0
+  },
+  {
+    "cell": "2mm",
+    "distance": 2,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "SWAP",
+    "arity": 0,
+    "stack_inputs": 2,
+    "stack_outputs": 2
+  },
+  {
+    "cell": "3mm",
+    "distance": 3,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "4mm",
+    "distance": 4,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "END",
+    "arity": 0,
+    "stack_inputs": 0,
+    "stack_outputs": 0
+  },
+  {
+    "cell": "5mm",
+    "distance": 5,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "6mm",
+    "distance": 6,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "7mm",
+    "distance": 7,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "8mm",
+    "distance": 8,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "OUT",
+    "arity": 0,
+    "stack_inputs": 1,
+    "stack_outputs": 0
+  },
+  {
+    "cell": "9mm",
+    "distance": 9,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "10mm",
+    "distance": 10,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  },
+  {
+    "cell": "11mm",
+    "distance": 11,
+    "initial_mode": "m",
+    "final_mode": "m",
+    "opcode": "RESERVED",
+    "arity": null,
+    "stack_inputs": null,
+    "stack_outputs": null
+  }
+]

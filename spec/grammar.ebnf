@@ -1,0 +1,40 @@
+(* Normative abstract grammar for Temperamento v0.3.0.
+   XML well-formedness, container safety, timing reconstruction, and MusicXML
+   structural constraints are validated before this grammar is applied. *)
+
+score              = score_partwise , one_part , two_declared_staves , measures ;
+measures           = measure , { measure } ;
+
+program            = command , { command } ;
+command            = base_pair , voice_window ;
+base_pair          = initial_triad , final_triad ;
+initial_triad      = major_triad | minor_triad ;
+final_triad        = major_triad | minor_triad ;
+major_triad        = transposition_of_pitch_class_set(0, 4, 7) ;
+minor_triad        = transposition_of_pitch_class_set(0, 3, 7) ;
+
+voice_window       = { voice_event } ;
+voice_event        = singleton_note | simultaneous_cluster ;
+simultaneous_cluster = two_or_more_notes_with_the_same_onset ;
+
+operands           = { operand } ;
+operand            = length_header , payload ;
+length_header      = singleton_note ;
+payload            = payload_note , { payload_note } ;
+payload_note       = singleton_note ;
+
+(* Semantic constraints:
+   1. Staff 1 is Voice and staff 2 is Base; at most one MusicXML voice is permitted
+      on each staff.
+   2. Recognised Base triads are consumed in non-overlapping onset-ordered pairs.
+   3. The assigned opcode signature fixes the exact number of operands; a
+      zero-arity opcode therefore has an empty operands sequence.
+   4. An operand header duration is a positive integer n in quarter-note units;
+      exactly n subsequent payload onsets belong to that operand.
+   5. Simultaneous Voice clusters are ignored computationally.
+   6. Singleton computational Voice notes may not overlap and may not cross the
+      final Base-chord onset of their command window.
+   7. For first-chord root r and payload pitch class v, digit=(v-r) mod 12.
+      Digits are decoded most significant first as a non-negative base-12 integer.
+   8. Missing, truncated, or surplus singleton Voice material is a static error.
+*)

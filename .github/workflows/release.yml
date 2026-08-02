@@ -1,0 +1,42 @@
+name: prerelease
+
+on:
+  push:
+    tags:
+      - "v*-alpha.*"
+      - "v*a*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -e ".[dev]"
+      - name: Install media toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - run: make release-assets
+      - name: Create GitHub prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release edit "${GITHUB_REF_NAME}" \
+              --prerelease \
+              --title "Temperamento ${GITHUB_REF_NAME}" \
+              --notes-file RELEASE_NOTES.md
+            gh release upload "${GITHUB_REF_NAME}" --clobber dist/* release/*
+          else
+            gh release create "${GITHUB_REF_NAME}" \
+              --prerelease \
+              --title "Temperamento ${GITHUB_REF_NAME}" \
+              --notes-file RELEASE_NOTES.md \
+              dist/* release/*
+          fi

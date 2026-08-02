@@ -1,0 +1,33 @@
+name: Language proposal
+about: Propose a syntax, opcode, type, memory, or semantics extension
+title: "[language] "
+labels: [language-design]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem addressed
+    validations:
+      required: true
+  - type: textarea
+    id: score
+    attributes:
+      label: Proposed score-level representation
+    validations:
+      required: true
+  - type: textarea
+    id: semantics
+    attributes:
+      label: Operational semantics and static errors
+    validations:
+      required: true
+  - type: textarea
+    id: invariance
+    attributes:
+      label: Effect on transposition and other invariances
+    validations:
+      required: true
+  - type: textarea
+    id: publication
+    attributes:
+      label: Effect on compatibility and future language plans

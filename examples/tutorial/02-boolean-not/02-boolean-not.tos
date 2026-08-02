@@ -1,0 +1,4 @@
+PUSH 0
+NOT
+OUT
+END

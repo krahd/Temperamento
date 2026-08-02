@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boolean Not</title>
+<style>
+:root{--ink:#15171a;--muted:#626974;--line:#d9dde3;--paper:#fff;--wash:#f4f6f8;--accent:#6b3fd4}
+*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:32px 20px 64px}h1{margin-bottom:.2rem}.lede{color:var(--muted);margin-top:0}
+section{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0;box-shadow:0 8px 28px rgba(20,24,32,.06)}
+table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;white-space:nowrap}th{background:var(--wash);position:sticky;top:0}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}pre{overflow:auto;background:#11151b;color:#e7edf5;padding:16px;border-radius:10px}.scroll{overflow:auto}.badge{display:inline-block;background:#eee8ff;color:#43208e;padding:3px 9px;border-radius:999px}
+</style></head><body><main>
+<h1>Boolean Not</h1><p class="lede"><span class="badge">Temperamento</span> 4 instructions · 4 ignored Base events · examples/tutorial/02-boolean-not/02-boolean-not.musicxml</p>
+<section><h2>Score-to-program map</h2><div class="scroll"><table><thead><tr><th>Command</th><th>Measure</th><th>Beat</th><th>Base relation</th><th>Cell</th><th>Opcode</th><th>Operand</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td><td>C M → B M</td><td><code>5MM</code></td><td><code>PUSH</code></td><td>0</td></tr><tr><td>2</td><td>1</td><td>19</td><td>B M → E♭ M</td><td><code>4MM</code></td><td><code>NOT</code></td><td>—</td></tr><tr><td>3</td><td>1</td><td>37</td><td>E♭ m → B m</td><td><code>8mm</code></td><td><code>OUT</code></td><td>—</td></tr><tr><td>4</td><td>1</td><td>55</td><td>B m → E♭ m</td><td><code>4mm</code></td><td><code>END</code></td><td>—</td></tr></tbody></table></div></section>
+<section><h2>Ignored Base material</h2><p>These well-formed score events remain musical material but are outside the exact major/minor computational alphabet. They do not affect chord pairing.</p><div class='scroll'><table><thead><tr><th>Measure</th><th>Beat</th><th>Pitches</th><th>Notes</th><th>Reason</th></tr></thead><tbody><tr><td>1</td><td>18</td><td>C♯</td><td>1</td><td>not an exact major or minor triad</td></tr><tr><td>1</td><td>36</td><td>G</td><td>1</td><td>not an exact major or minor triad</td></tr><tr><td>1</td><td>54</td><td>F</td><td>1</td><td>not an exact major or minor triad</td></tr><tr><td>1</td><td>72</td><td>B</td><td>1</td><td>not an exact major or minor triad</td></tr></tbody></table></div></section>
+<section><h2>Canonical TOScript Core</h2><pre>PUSH 0
+NOT
+OUT
+END
+</pre></section>
+<section><h2>Execution</h2><p><strong>Output:</strong> <code>[1]</code> · <strong>Steps:</strong> 4</p><div class='scroll'><table><thead><tr><th>PC</th><th>Instruction</th><th>Stack before</th><th>Stack after</th><th>Output</th></tr></thead><tbody><tr><td>0</td><td><code>PUSH</code></td><td><code>()</code></td><td><code>(0,)</code></td><td><code>()</code></td></tr><tr><td>1</td><td><code>NOT</code></td><td><code>(0,)</code></td><td><code>(1,)</code></td><td><code>()</code></td></tr><tr><td>2</td><td><code>OUT</code></td><td><code>(1,)</code></td><td><code>()</code></td><td><code>(1,)</code></td></tr></tbody></table></div></section>
+</main></body></html>
