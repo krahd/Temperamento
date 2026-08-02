@@ -2,7 +2,7 @@
 
 Temperamento is a programming language in which executable programs may be written as text or as two-stave musical scores. Within a deliberately restricted MusicXML subset, exact major/minor triads on the **Base** staff form ordered computational pairs; duration-framed notes on the **Voice** staff encode root-relative base-12 operands. Other supported Base material remains in the score but is ignored and reported rather than declared invalid.
 
-**Current release:** `v0.5.0-alpha.1`.
+**Current release:** `v0.5.0`.
 
 ![Temperamento walkthrough](docs/assets/temperamento-walkthrough.gif)
 
@@ -14,7 +14,7 @@ The implemented semantic chain is:
 TOScript+ ↔ TOScript Core ↔ MusicXML / MXL
 ```
 
-- **TOScript+** (`.tom`, `.tos+`, `.tosplus`) is the ergonomic authoring form. The current alpha supports comments, non-negative constants, named labels, `jump`, `jump-if`, `output`, and quoted-string `print` sugar.
+- **TOScript+** (`.tom`, `.tos+`, `.tosplus`) is the ergonomic authoring form. The current release supports comments, non-negative constants, named labels, `jump`, `jump-if`, `output`, and quoted-string `print` sugar.
 - **TOScript Core** (`.tos`) is the canonical executable representation.
 - **MusicXML/MXL** is the portable score representation. Converting text or another score to MusicXML produces a canonical realisation, not a reconstruction of the original engraving.
 
