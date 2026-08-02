@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import xml.etree.ElementTree as ET
 import zipfile
 from fractions import Fraction
@@ -14,6 +15,12 @@ _MAX_ARCHIVE_BYTES = 25 * 1024 * 1024
 _MAX_ARCHIVE_ENTRIES = 256
 _MAX_MEASURES = 10_000
 _MAX_NOTE_EVENTS = 100_000
+_STANDARD_MUSICXML_DOCTYPE = re.compile(
+    rb"<!DOCTYPE\s+score-partwise\s+PUBLIC\s+"
+    rb"(['\"])-//Recordare//DTD\s+MusicXML\s+4\.0\s+Partwise//EN\1\s+"
+    rb"(['\"])https?://(?:www\.)?musicxml\.org/dtds/partwise\.dtd\2\s*>",
+    re.IGNORECASE,
+)
 
 
 def _local(tag: str) -> str:
@@ -55,8 +62,15 @@ def _parse_xml_bytes(data: bytes, context: str) -> ET.Element:
     if len(data) > _MAX_XML_BYTES:
         raise MusicXMLError(f"{context} exceeds the {_MAX_XML_BYTES}-byte safety limit")
     upper = data.upper()
-    if b"<!DOCTYPE" in upper or b"<!ENTITY" in upper:
-        raise MusicXMLError("DTD and entity declarations are not supported")
+    if b"<!ENTITY" in upper:
+        raise MusicXMLError("entity declarations are not supported")
+    if b"<!DOCTYPE" in upper:
+        matches = list(_STANDARD_MUSICXML_DOCTYPE.finditer(data))
+        if len(matches) != 1 or len(re.findall(rb"<!DOCTYPE", upper)) != 1:
+            raise MusicXMLError(
+                "only the standard MusicXML 4.0 partwise document type is supported"
+            )
+        data = data[: matches[0].start()] + data[matches[0].end() :]
     try:
         return ET.fromstring(data)
     except ET.ParseError as exc:
