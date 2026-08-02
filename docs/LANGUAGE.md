@@ -1,6 +1,6 @@
 # Language guide
 
-This document explains the implemented `v0.5.0-alpha.1` language. The normative score constraints are in [`spec/grammar.ebnf`](../spec/grammar.ebnf), [`spec/semantic-subset.md`](../spec/semantic-subset.md), and [`spec/opcode-table.json`](../spec/opcode-table.json).
+This document explains the implemented `v0.5.0` language. The normative score constraints are in [`spec/grammar.ebnf`](../spec/grammar.ebnf), [`spec/semantic-subset.md`](../spec/semantic-subset.md), and [`spec/opcode-table.json`](../spec/opcode-table.json).
 
 ## Representation chain
 
@@ -38,7 +38,7 @@ Parsing validates opcode names, arity, non-negative operands, duplicate labels, 
 
 ## TOScript+
 
-TOScript+ files use `.tom`, `.tos+`, or `.tosplus`. The current alpha implements a deliberately small ergonomic subset that lowers completely to TOScript Core:
+TOScript+ files use `.tom`. The current release implements a deliberately small ergonomic subset that lowers completely to TOScript Core:
 
 - `#` comments;
 - `let NAME = INTEGER` compile-time constants;
@@ -67,7 +67,7 @@ end
 
 Symbolic labels are assigned deterministic non-negative numeric labels in first-definition order while avoiding explicitly used numeric labels. Canonical lifting from Core uses numeric labels so that lowering the result recovers byte-identical Core.
 
-This subset does not yet implement the complete historical TOScript+ design: runtime variables, arrays, procedures, functions, or expanded value types remain outside the alpha.
+This subset does not yet implement the complete historical TOScript+ design: runtime variables, arrays, procedures, functions, or expanded value types remain outside `v0.5`.
 
 ## Core to score notation
 
@@ -187,7 +187,7 @@ Compilation or parsing rejects, among other conditions:
 - malformed or unsafe `.mxl` containers;
 - entity declarations and unsafe or excessive source structures;
 - unknown textual operations, wrong arity, negative operands, duplicate labels, and undefined labels;
-- no recognised computational Base triads or an odd number of recognised computational triads;
+- no recognised computational Base triads or an odd number of recognised computational Base triads;
 - reserved harmonic cells;
 - overlapping or boundary-crossing computational Voice notes; and
 - missing, truncated, or surplus operands.
@@ -200,4 +200,4 @@ Execution rejects malformed instruction objects and reports stack underflow, div
 
 ## External notation and sound tools
 
-MuseScore Studio or another notation application may turn MusicXML into engraved sheets and playback files. The parser accepts the standard external `score-partwise` MusicXML DOCTYPE emitted by MuseScore while rejecting entity declarations. Sound-to-score systems may produce MusicXML that Temperamento can subsequently validate and compile. Neither engraving, playback, nor audio transcription changes Temperamento's canonical semantic boundary; sound-to-score is not claimed to be deterministic or invertible.
+MuseScore Studio or another notation application may turn MusicXML into engraved sheets and playback files. The parser accepts the standard external `score-partwise` MusicXML 4.0 DOCTYPE emitted by MuseScore while rejecting entity declarations and other DTDs. Sound-to-score systems may produce MusicXML that Temperamento can subsequently validate and compile. Neither engraving, playback, nor audio transcription changes Temperamento's canonical semantic boundary; sound-to-score is not claimed to be deterministic or invertible.
