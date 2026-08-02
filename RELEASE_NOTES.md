@@ -1,4 +1,4 @@
-# Temperamento v0.5.0-alpha.1
+# Temperamento v0.5.0
 
 This release separates the deterministic computational alphabet from the broader supported score material and adds the minimal stack operation needed for a constructive universality result.
 
@@ -21,7 +21,7 @@ This release separates the deterministic computational alphabet from the broader
 
 ## Interoperability and safety
 
-- Standard external `score-partwise` MusicXML doctypes emitted by MuseScore Studio are accepted; entity declarations remain rejected.
+- The standard external `score-partwise` MusicXML 4.0 DOCTYPE emitted by MuseScore Studio is accepted; entity declarations and other DTDs remain rejected.
 - MusicXML, MXL, TOScript, and TOScript+ inputs have explicit size and structural limits.
 - MXL path, duplicate-entry, archive-size, entry-count, XML-size, measure-count, and note-event boundaries are validated.
 - Project scaffolding no longer deletes unrelated files under `--force`; native MuseScore creation is explicit.
@@ -30,7 +30,7 @@ This release separates the deterministic computational alphabet from the broader
 
 ## Example and release artefacts
 
-- Direction-specific packages now record exact primary, lowered, canonical, round-trip, and presentation roles.
+- Direction-specific packages record exact primary, lowered, canonical, round-trip, and presentation roles.
 - Deterministic printable maps, MIDI, reference audio, execution audio, inspection HTML, MusicXML, and MXL are committed.
 - The checksum-pinned MuseScore workflow produces and round-trip verifies editable MSCZ, engraved PDF, and MP3 playback outputs.
 - Release ZIP and TAR archives use the current version and deterministic timestamps, ownership, permissions, ordering, and compression metadata.
