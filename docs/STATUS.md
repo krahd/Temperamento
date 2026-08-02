@@ -2,9 +2,9 @@
 
 ## Current state
 
-Temperamento `v0.5.0-alpha.1` is a musician-facing pre-release extending the deterministic score language established in `v0.3.0` and the integrated environment introduced in `v0.4.0-alpha.1`.
+Temperamento `v0.5.0` is a musician-facing and research-facing release extending the deterministic score language established in `v0.3.0` and the integrated environment introduced in `v0.4.0-alpha.1`.
 
-The alpha provides:
+The release provides:
 
 - deterministic MusicXML/MXL compilation within a documented one-part, two-stave subset;
 - native MuseScore Studio MSCX/MSCZ conversion;
@@ -17,7 +17,7 @@ The alpha provides:
 - inspection diagnostics that preserve ignored Base events without assigning them a harmonic analysis;
 - root-relative base-12 operands and whole-program chromatic-transposition invariance;
 - a validated stack interpreter including `SWAP` and explicit resource budgets;
-- a constructive translation from deterministic two-counter machines and a documented Turing-completeness proof for the idealised core;
+- a constructive translation from deterministic two-counter machines and a documented Turing-completeness argument for the idealised core;
 - measure/beat source maps, bounded execution traces, text/JSON/HTML inspection, and a browser GUI;
 - non-destructive project scaffolding and multi-format MuseScore rendering;
 - tutorial programs, executable compositions, and direction-specific examples with score, program, media, output, manifest, and inspection artefacts; and
@@ -41,12 +41,12 @@ The release is suitable for:
 
 - independent inspection of the programming-language mechanism and universality construction;
 - authoring experiments in MuseScore Studio, TOScript Core, and the implemented TOScript+ subset;
-- bidirectional score/text demonstrations and canonical round-trip verification;
+- canonical score/text demonstrations and round-trip verification;
 - demonstrations, workshops, teaching, and early external testing;
 - reproducing the current release artefact; and
 - composing within the documented restricted language.
 
-It is not a stable `1.0` language or production notation ecosystem. The Python API, score grammar, textual syntax, canonical notation, opcode assignments, and project layout may change during alpha releases.
+It is a completed `v0.5.0` release, not a stable `1.0` language or production notation ecosystem. The Python API, score grammar, textual syntax, canonical notation, opcode assignments, and project layout may still change before `1.0`.
 
 ## Deliberately excluded
 
