@@ -13,14 +13,14 @@ make release-assets
 
 ## Tag
 
-Alpha tags use PEP 440-compatible package versions and readable Git tags:
+Stable releases use PEP 440-compatible package versions and matching readable Git tags:
 
 ```bash
-git tag -a v0.5.0-alpha.1 -m "Temperamento v0.5.0-alpha.1"
-git push origin main --tags
+git tag -a v0.5.0 -m "Temperamento v0.5.0"
+git push origin v0.5.0
 ```
 
-The prerelease workflow creates a GitHub prerelease containing:
+A release contains:
 
 - wheel and source distribution;
 - examples ZIP and tarball;
@@ -32,7 +32,7 @@ Rendering and release tagging are intentionally separate operations. The `render
 
 ## External checks
 
-Before distributing the alpha broadly:
+Before distributing a release broadly:
 
 - run the real-MuseScore workflow with an official AppImage and verified checksum;
 - inspect the GitHub Pages deployment;
