@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "temperamento"
-version = "0.5.0a1"
+version = "0.5.0"
 description = "Deterministic MusicXML front end and reference interpreter for the Temperamento harmonic programming language"
 readme = "README.md"
 requires-python = ">=3.11"
