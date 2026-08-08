@@ -69,7 +69,7 @@ def _strip_safe_musicxml_doctype(data: bytes) -> bytes:
     """
     upper = data.upper()
     if b"<!ENTITY" in upper:
-        raise MusicXMLError("entity declarations are not supported")
+        raise MusicXMLError("DTD and entity declarations are not supported")
     if b"<!DOCTYPE" not in upper:
         return data
 
