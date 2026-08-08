@@ -23,6 +23,23 @@ _PC = {
     10: ("B", -1),
     11: ("B", 0),
 }
+_MAX_PROJECT_TITLE_CHARS = 4096
+
+
+def _validate_project_title(title: str) -> None:
+    if len(title) > _MAX_PROJECT_TITLE_CHARS:
+        raise IntegrationError(
+            f"project title exceeds the {_MAX_PROJECT_TITLE_CHARS}-character safety limit"
+        )
+    for character in title:
+        codepoint = ord(character)
+        if not (
+            codepoint in {0x09, 0x0A, 0x0D}
+            or 0x20 <= codepoint <= 0xD7FF
+            or 0xE000 <= codepoint <= 0xFFFD
+            or 0x10000 <= codepoint <= 0x10FFFF
+        ):
+            raise IntegrationError("project title contains text not valid in XML 1.0")
 
 
 def _pitch(note: ET.Element, pc: int, octave: int) -> None:
@@ -64,6 +81,7 @@ def _backup(measure: ET.Element, duration: int) -> None:
 
 def starter_score(title: str) -> bytes:
     """Return a small valid PUSH 72 / OUT / END Temperamento score."""
+    _validate_project_title(title)
     score = ET.Element("score-partwise", version="4.0")
     work = ET.SubElement(score, "work")
     ET.SubElement(work, "work-title").text = title
@@ -173,6 +191,7 @@ def initialise_project(
 
     project_name = root.name
     project_title = title or project_name.replace("-", " ").replace("_", " ").title()
+    _validate_project_title(project_title)
     build = root / "build"
     if build.is_symlink() or (build.exists() and not build.is_dir()):
         raise IntegrationError(f"project build path is not a directory: {build}")
