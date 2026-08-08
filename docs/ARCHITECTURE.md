@@ -44,7 +44,9 @@ TOScript Core     stack interpreter   inspection data
 
 ## Trust boundaries
 
-MusicXML and MXL are untrusted inputs. The parser enforces XML-size limits, rejects DTD/entity declarations, unsafe paths, duplicate rootfiles, unsupported structures, and ambiguous notation. MuseScore is an external process: its return code and expected output files are checked, and conversion occurs in a temporary directory.
+MusicXML and MXL are untrusted inputs. The parser enforces XML-size limits; accepts and strips only the standard external Recordare `score-partwise` MusicXML DOCTYPE without resolving its external DTD; rejects entity declarations, internal subsets, and unrecognised DTDs; and rejects unsafe archive paths, duplicate rootfiles, unsupported structures, and ambiguous notation. MuseScore is an external process: executable discovery is distinguished from successful execution, its return code and expected output files are checked, and conversion occurs in a temporary directory.
+
+Starter-project titles are validated before any project files are written so invalid XML 1.0 characters and unreasonably long title input cannot create malformed or partially populated project artefacts.
 
 The browser GUI contains static generated HTML and does not run a compiler in JavaScript. The CLI/API remain the single semantic implementation.
 
