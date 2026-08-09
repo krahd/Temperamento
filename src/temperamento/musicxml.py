@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import xml.etree.ElementTree as ET
 import zipfile
 from fractions import Fraction
@@ -14,6 +15,12 @@ _MAX_ARCHIVE_BYTES = 25 * 1024 * 1024
 _MAX_ARCHIVE_ENTRIES = 256
 _MAX_MEASURES = 10_000
 _MAX_NOTE_EVENTS = 100_000
+_STANDARD_MUSICXML_DOCTYPE = re.compile(
+    rb'<!DOCTYPE\s+score-partwise\s+PUBLIC\s+"-//Recordare//DTD MusicXML '
+    rb'[0-9]+(?:\.[0-9]+)* Partwise//EN"\s+'
+    rb'"https?://www\.musicxml\.org/dtds/partwise\.dtd"\s*>',
+    re.IGNORECASE,
+)
 
 
 def _local(tag: str) -> str:
@@ -51,12 +58,33 @@ def _integer(
     return value
 
 
+def _strip_safe_musicxml_doctype(data: bytes) -> bytes:
+    """Remove one recognised external MusicXML DOCTYPE without resolving it.
+
+    MuseScore and other notation tools commonly emit the standard Recordare
+    score-partwise declaration. ElementTree does not need that external DTD for
+    Temperamento's constrained parser, so the declaration is stripped before
+    parsing. Entity declarations, internal subsets, additional DOCTYPEs, and
+    unrecognised DTDs remain prohibited.
+    """
+    upper = data.upper()
+    if b"<!ENTITY" in upper:
+        raise MusicXMLError("DTD and entity declarations are not supported")
+    if b"<!DOCTYPE" not in upper:
+        return data
+
+    stripped, count = _STANDARD_MUSICXML_DOCTYPE.subn(b"", data, count=1)
+    if count != 1 or b"<!DOCTYPE" in stripped.upper():
+        raise MusicXMLError(
+            "only the standard external score-partwise MusicXML DOCTYPE is supported"
+        )
+    return stripped
+
+
 def _parse_xml_bytes(data: bytes, context: str) -> ET.Element:
     if len(data) > _MAX_XML_BYTES:
         raise MusicXMLError(f"{context} exceeds the {_MAX_XML_BYTES}-byte safety limit")
-    upper = data.upper()
-    if b"<!DOCTYPE" in upper or b"<!ENTITY" in upper:
-        raise MusicXMLError("DTD and entity declarations are not supported")
+    data = _strip_safe_musicxml_doctype(data)
     try:
         return ET.fromstring(data)
     except ET.ParseError as exc:

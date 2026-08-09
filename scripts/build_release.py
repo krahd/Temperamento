@@ -18,6 +18,24 @@ from temperamento import __version__
 
 RELEASE = ROOT / "release"
 _DEFAULT_SOURCE_DATE_EPOCH = 946684800  # 2000-01-01T00:00:00Z
+_TEXT_SUFFIXES = {
+    ".css",
+    ".htm",
+    ".html",
+    ".js",
+    ".json",
+    ".md",
+    ".mscx",
+    ".musicxml",
+    ".py",
+    ".svg",
+    ".tom",
+    ".tos",
+    ".txt",
+    ".xml",
+    ".yaml",
+    ".yml",
+}
 
 
 def _source_date_epoch() -> int:
@@ -39,6 +57,24 @@ def _files(source: Path) -> list[Path]:
     return sorted(path for path in source.rglob("*") if path.is_file())
 
 
+def _archive_bytes(path: Path) -> bytes:
+    """Return platform-independent bytes for release archives.
+
+    Git attributes keep tracked text at LF, but release inputs can also be generated
+    at runtime. Normalise recognised UTF-8 text assets so archives built from the same
+    logical tree are byte-identical on Windows and POSIX systems; preserve binary
+    assets exactly.
+    """
+    data = path.read_bytes()
+    if path.suffix.lower() not in _TEXT_SUFFIXES:
+        return data
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data
+    return text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+
+
 def _zip_tree(source: Path, destination: Path, *, epoch: int) -> None:
     timestamp = time.gmtime(max(epoch, _DEFAULT_SOURCE_DATE_EPOCH))[:6]
     with zipfile.ZipFile(
@@ -53,7 +89,7 @@ def _zip_tree(source: Path, destination: Path, *, epoch: int) -> None:
             info.compress_type = zipfile.ZIP_DEFLATED
             info.create_system = 3
             info.external_attr = 0o100644 << 16
-            archive.writestr(info, path.read_bytes(), compresslevel=9)
+            archive.writestr(info, _archive_bytes(path), compresslevel=9)
 
 
 def _tar_tree(source: Path, destination: Path, *, epoch: int) -> None:
@@ -61,7 +97,7 @@ def _tar_tree(source: Path, destination: Path, *, epoch: int) -> None:
     with tarfile.open(fileobj=buffer, mode="w", format=tarfile.PAX_FORMAT) as archive:
         for path in _files(source):
             arcname = (Path(source.name) / path.relative_to(source)).as_posix()
-            data = path.read_bytes()
+            data = _archive_bytes(path)
             info = tarfile.TarInfo(arcname)
             info.size = len(data)
             info.mode = 0o644

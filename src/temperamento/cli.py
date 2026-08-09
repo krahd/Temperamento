@@ -31,6 +31,8 @@ def _configure_standard_streams() -> None:
 
 
 class MuseScoreDoctorPayload(TypedDict):
+    detected: bool
+    runnable: bool
     available: bool
     executable: str | None
     version: str | None
@@ -177,17 +179,24 @@ def _text_output(values: tuple[int | float, ...]) -> str:
 
 def _doctor_payload(explicit: Path | None) -> DoctorPayload:
     installation = find_musescore(explicit)
+    detected = installation is not None
+    # find_musescore probes the executable for a version while discovering it. A file can
+    # therefore be present but not runnable in the current environment; do not advertise
+    # export capabilities unless that probe succeeded.
+    runnable = installation is not None and installation.version is not None
     return {
         "temperamento": __version__,
         "python": platform.python_version(),
         "platform": platform.platform(),
         "musescore": {
-            "available": installation is not None,
+            "detected": detected,
+            "runnable": runnable,
+            "available": runnable,
             "executable": str(installation.executable) if installation else None,
             "version": installation.version if installation else None,
-            "musicxml_export": installation is not None,
-            "pdf_export": installation is not None,
-            "audio_export": installation is not None,
+            "musicxml_export": runnable,
+            "pdf_export": runnable,
+            "audio_export": runnable,
         },
     }
 
@@ -205,13 +214,19 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"Temperamento {payload['temperamento']}")
                 print(f"Python {payload['python']}")
                 print(f"Platform {payload['platform']}")
-                if muse["available"]:
+                if muse["runnable"]:
                     version = muse["version"] or "version unavailable"
                     print(f"MuseScore Studio: {version}")
                     print(f"Executable: {muse['executable']}")
                     print("MusicXML export: available")
                     print("PDF export: available")
                     print("Audio export: available")
+                elif muse["detected"]:
+                    print("MuseScore Studio: executable found but not runnable")
+                    print(f"Executable: {muse['executable']}")
+                    print("MusicXML export: unavailable")
+                    print("PDF export: unavailable")
+                    print("Audio export: unavailable")
                 else:
                     print("MuseScore Studio: not found")
                     print("Set TEMPERAMENTO_MUSESCORE or pass --musescore.")
