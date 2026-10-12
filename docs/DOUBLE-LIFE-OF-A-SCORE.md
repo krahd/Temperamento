@@ -1,5 +1,7 @@
 # Temperamento and the Double Life of a Score
 
+**Historical compositional proposal.** [Temperamento and the Executable Score](EXECUTABLE-SCORE-RESEARCH.md) supersedes this suite as the January–May 2027 research plan. The proposal below preserves the earlier compositional direction.
+
 A musical score can organise music for listening and also specify computational actions. In Temperamento, these readings share an inscription while attending to different properties. A change of register or voicing can alter the music while preserving the programme; other small changes can alter what the machine does. This planned suite asks what a score can say musically through the properties that its executable reading preserves, transforms or ignores.
 
 ## A suite of three studies

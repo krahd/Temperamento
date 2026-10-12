@@ -75,9 +75,15 @@ python scripts/render_examples_musescore.py \
 
 `make example-assets` combines the batch rendering with Temperamento's computational artefact generation. This preserves the distinction between score playback and execution audio.
 
-## Why there is no native plugin yet
+## Native plugin development
 
-MuseScore's public developer handbook warns that substantial plugin documentation remains written for MuseScore 3 rather than MuseScore 4. The converter interface is smaller, documented, testable, and keeps the compiler independent of the notation application's plugin API. A later plugin should call the same CLI/API and provide in-score navigation; it must not duplicate language semantics.
+The current alpha integrates through the converter and does not include a native plugin. The next research phase, [Temperamento and the Executable Score](EXECUTABLE-SCORE-RESEARCH.md), develops native Compose and Inspect and Run and Trace functions around the same Python compiler and interpreter.
+
+MuseScore publishes [versioned 4.7 extension documentation](https://musescore.github.io/snapshots/4.7/index.html). Its [4.7.4 QML API implementation](https://github.com/musescore/MuseScore/blob/v4.7.4/src/engraving/api/v1/qmlpluginapi.cpp) registers the `QProcess` type and provides score export and import. The [process API](https://github.com/musescore/MuseScore/blob/v4.7.4/src/engraving/api/v1/util.h) exposes `startWithArgs(program, args)`; [cursor](https://github.com/musescore/MuseScore/blob/v4.7.4/src/engraving/api/v1/cursor.h) and [selection](https://github.com/musescore/MuseScore/blob/v4.7.4/src/engraving/api/v1/selection.h) interfaces provide navigation within a score. These interfaces supply the basis for calling Temperamento and relating its diagnostics and traces to notation.
+
+The QML `QProcess` type is distinct from the unimplemented `newQProcess()` factory. The FileIO API restricts writes to MuseScore's user-data directories. Integration must accommodate these interfaces and the supported host version rather than infer behaviour from older plugin documentation.
+
+The planned plugin will retain the authored score, expose consequences of edits and provide in-score navigation. Language semantics will remain in the existing CLI/API. Native plugin behaviour and platform compatibility remain development work; the current release's converter verification does not establish them.
 
 ## Real-integration verification
 

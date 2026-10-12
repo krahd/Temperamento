@@ -9,8 +9,12 @@
 - [MuseScore Studio workflow](MUSESCORE.md)
 - [Inspection GUI](GUI.md)
 - [Showcase and examples](SHOWCASE.md)
-- [Temperamento and the Double Life of a Score](DOUBLE-LIFE-OF-A-SCORE.md)
 - [Troubleshooting](TROUBLESHOOTING.md)
+
+## Research development
+
+- [Temperamento and the Executable Score](EXECUTABLE-SCORE-RESEARCH.md)
+- [Double Life of a Score — historical compositional proposal](DOUBLE-LIFE-OF-A-SCORE.md)
 
 ## Technical reference
 

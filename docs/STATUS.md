@@ -48,6 +48,12 @@ The release is suitable for:
 
 It is not a stable `1.0` language or production notation ecosystem. The Python API, score grammar, textual syntax, canonical notation, opcode assignments, and project layout may change during alpha releases.
 
+## Planned research phase
+
+[Temperamento and the Executable Score](EXECUTABLE-SCORE-RESEARCH.md) defines the January–May 2027 research phase: native MuseScore integration, a supported compose–inspect–run–revise–export cycle, and compositional investigation of musical decisions and machine interpretation. It supersedes the earlier fixed-suite production plan.
+
+The planned plugins, linked execution navigation and compositional trials are not implemented or completed features of the current alpha. The existing compiler and interpreter remain the shared semantic implementation.
+
 ## Deliberately excluded
 
 The current release does not implement or claim:
