@@ -31,3 +31,9 @@ Before considering a material project-state change complete, verify that:
 2. `krahd/tom-work-admin` reflects any resulting global status, date, relationship, or next-action change;
 3. related domain repositories are updated when the change affects manuscripts, submissions, or grants;
 4. no stale cross-domain status or date remains in `tom-work-admin`.
+
+## Current artistic production and grant routing
+
+The project-specific production plan is [Temperamento and the Double Life of a Score](docs/DOUBLE-LIFE-OF-A-SCORE.md): a short suite of three studies, annotated scores, digital musical realisations and an audiovisual presentation, developed from the existing language and showcase compositions.
+
+The associated CHA Small Grant application is maintained in [krahd/grant-applications/2026-10-11_cha-small-grant-fall-2026](https://github.com/krahd/grant-applications/tree/main/2026-10-11_cha-small-grant-fall-2026). That private owner holds preparation decisions, the proposed allocation, budget, routing and submission evidence. Cross-domain status and dates are derived from `krahd/tom-work-admin`, opportunity `grant-2026-cha-small-fall`. This project note records a proposed production phase; it does not establish grant submission or an award.
