@@ -34,7 +34,9 @@ Before considering a material project-state change complete, verify that:
 
 ## Current research development and grant routing
 
-The project-specific research plan is [Temperamento and the Executable Score](docs/EXECUTABLE-SCORE-RESEARCH.md): native MuseScore integration, a supported compose–inspect–run–revise–export cycle, and compositional research into the relationship between musical decisions and machine interpretation.
+The project-specific research plan is [Temperamento and the Executable Score](docs/EXECUTABLE-SCORE-RESEARCH.md): native MuseScore integration, a supported compose–inspect–run–revise–export cycle, and compositional research into the relationship between musical decisions and machine interpretation. The January–May 2027 phase now includes a bounded experimental two-pass repeat prototype, six paired short-score studies and a research manuscript.
+
+Comparison of the existing parser and Core control flow with MusicXML's repeat and jump semantics identified a specific research problem: conventional musical returns can intersect instruction pairs, operand windows and computational branches. The research plan isolates this problem through a restricted repeat subset and a documented comparison corpus. This refines the prospective research scope without changing the current alpha's semantics or claiming that the extension has been implemented.
 
 The associated CHA Small Grant application is maintained in [krahd/grant-applications/2026-10-11_cha-small-grant-fall-2026](https://github.com/krahd/grant-applications/tree/main/2026-10-11_cha-small-grant-fall-2026). That private owner holds preparation decisions, the proposed allocation, budget, routing and submission evidence. Cross-domain status and dates are derived from `krahd/tom-work-admin`, opportunity `grant-2026-cha-small-fall`. The research plan records future work; it does not establish grant submission, an award or implementation of the proposed plugins.
 

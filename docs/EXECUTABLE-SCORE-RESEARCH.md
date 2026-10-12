@@ -10,7 +10,7 @@ A change of register or voicing can alter the music while preserving its program
 
 The present representation chain supplies canonical semantic conversions between supported scores, TOScript Core and TOScript+. Canonical conversion preserves the programme but does not recover the original score's voicing, engraving or noncomputational material. A usable authoring environment must therefore expose what changes between representations while retaining the composer's authored score.
 
-The investigation concerns the conditions under which musical notation can sustain computational authorship. Its evidence will include compositional decisions, alternatives, unexpected consequences and constraints encountered through use.
+The investigation concerns the conditions under which musical notation can sustain computational authorship. Its evidence will include compositional decisions, alternatives, unexpected consequences and constraints encountered through use. It develops a sustained research line connecting Laurenzo's work in computational art with musical notation and language design.
 
 ## Native notation integration
 
@@ -31,6 +31,18 @@ The development will make selective machine reading visible at the point of revi
 
 This phase concerns the integrated workflow within Temperamento's supported notation. It does not promise unrestricted interpretation of music or automatic recovery of every musical decision from canonical code.
 
+## Musical repetition and computational repetition
+
+A specific investigation will ask what should be repeated when a musical passage is also a programme. Conventional repeat marks direct a performer to return to a passage. Temperamento's Core already supplies labels and conditional and unconditional jumps, while its score parser currently reads the written sequence without following repeat barlines. The research will compare these ways of organising repetition and examine how their differences affect composition.
+
+The initial experimental extension will support one explicitly delimited, non-nested, two-pass repeat per score. The repeat barlines must fall between complete computational instructions, including their operand material. Repeat-bearing scores in this initial subset will contain no Core labels or jumps, and the repeated block will contain no termination instruction. These boundaries isolate finite musical repetition without assigning an unexamined precedence to two interacting control systems.
+
+The prototype will lower the supported repeated passage into the existing Core representation and use the existing interpreter. Inspection will retain the authored score location and distinguish each pass or occurrence. An explicit experimental compilation mode will identify the new reading; existing alpha semantics will remain separately identifiable. First and second endings, nested repeats, arbitrary repeat counts, da capo, dal segno, coda and procedures are outside the committed implementation. They may appear in comparison material that documents the boundary of the prototype.
+
+Correctness will be checked against explicitly unfolded scores, including state carried from one pass to the next, source occurrence mapping and deliberate rejection cases. A repeat that splits an instruction or operand window, or a score that combines the prototype with explicit Core control flow, must produce a clear diagnostic. Matching execution does not establish the artistic result: the compositional study will examine what the alternative notations make available, obscure or constrain.
+
+MusicXML already defines [repeat marks and counts](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/repeat/), [alternative endings](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/ending/) and [jump navigation](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/sound/). The question here is how musical navigation relates to Temperamento's harmonic instruction pairs, operand windows and execution state.
+
 ## Compositional research
 
 The environment will be developed through two complementary approaches:
@@ -38,7 +50,9 @@ The environment will be developed through two complementary approaches:
 - Start with a musical phrase and investigate how it can acquire computational behaviour while retaining its musical purpose.
 - Start with a desired computation and develop alternative musical expressions of it.
 
-These trials will involve scoring, listening, execution, revision and comparison. Revision histories will record where musical and computational aims support one another, where they conflict and where an attempted solution fails. Those encounters will guide changes to the interfaces and bounded refinements of notation conventions. Any change to language semantics will be specified and verified through the project's established implementation and validation process.
+These trials will produce six paired short-score studies, comprising twelve scores. Each pair will examine a particular compositional choice through alternatives such as an explicitly unfolded passage and a repeat-marked passage, or a conflicting construction and its revision. Supported, conflicting and rejected cases will all be documented; the corpus is not a promise that every score compiles successfully.
+
+The studies will involve scoring, listening, execution, revision and comparison. Revision histories will record where musical and computational aims support one another, where they conflict and where an attempted solution fails. Each study will include its scores, relevant execution or diagnostic evidence, and an account of the decisions involved. Those encounters will guide changes to the interfaces and the experimental repeat notation. Any change to language semantics will be specified and verified through the project's established implementation and validation process.
 
 The examples are research material through which Temperamento itself is developed. Their value lies in the decisions and possibilities they make available, rather than in meeting a fixed concert programme or suite structure.
 
@@ -49,11 +63,11 @@ Tomas Laurenzo will lead the research, interface and language design, main imple
 | Period | Activity |
 |---|---|
 | January–February 2027 | Develop the native notation integration and connect the supported authoring cycle. |
-| March–April 2027 | Conduct compositional trials, examine their revision histories and refine the environment. |
-| April 2027 | Present a demonstration and discussion accessible to the CU Boulder community. |
-| By 31 May 2027 | Publish the research release, plugin package, examples and revision histories, installation and use documentation, and a concise critical account. |
+| March–April 2027 | Develop the bounded repeat prototype, conduct the paired compositional studies, examine their revision histories and refine the environment. |
+| April 2027 | Present an online demonstration and discussion for the CU Boulder community. |
+| By 31 May 2027 | Publish the research release with the plugin package, bounded repeat prototype, twelve study scores and their documentation, installation and use instructions; complete a research manuscript. |
 
-The public release and demonstration will make the environment available for further artistic and scholarly work on notation, programming and interpretation.
+The public release and demonstration will make the environment available for further artistic and scholarly work on notation, programming and interpretation. The research manuscript will develop an argument from the design decisions and compositional studies, examining how executable notation organises musical and computational authorship.
 
 ## Artistic context
 

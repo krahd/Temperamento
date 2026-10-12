@@ -50,9 +50,9 @@ It is not a stable `1.0` language or production notation ecosystem. The Python A
 
 ## Planned research phase
 
-[Temperamento and the Executable Score](EXECUTABLE-SCORE-RESEARCH.md) defines the January–May 2027 research phase: native MuseScore integration, a supported compose–inspect–run–revise–export cycle, and compositional investigation of musical decisions and machine interpretation. It supersedes the earlier fixed-suite production plan.
+[Temperamento and the Executable Score](EXECUTABLE-SCORE-RESEARCH.md) defines the January–May 2027 research phase: native MuseScore integration, a supported compose–inspect–run–revise–export cycle, a bounded experimental two-pass repeat prototype, and six paired compositional studies of musical decisions and machine interpretation. The planned outcomes include a research release and manuscript by 31 May 2027. This phase supersedes the earlier fixed-suite production plan.
 
-The planned plugins, linked execution navigation and compositional trials are not implemented or completed features of the current alpha. The existing compiler and interpreter remain the shared semantic implementation.
+The planned plugins, linked execution navigation, repeat prototype and compositional studies are not implemented or completed features of the current alpha. The repeat prototype will have explicit restrictions on instruction boundaries and interaction with Core control flow. It does not extend the committed scope to procedures, general musical navigation or live MIDI compilation. The existing compiler and interpreter remain the shared semantic implementation.
 
 ## Deliberately excluded
 
